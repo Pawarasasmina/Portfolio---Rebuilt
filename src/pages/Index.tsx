@@ -16,9 +16,13 @@ const Index = () => {
   // Konami Code: ↑↑↓↓←→←→BA
   const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'KeyB', 'KeyA'];
 
-  // Scroll to top on mount
+  // Scroll to top and to #hero on mount
   useEffect(() => {
     window.scrollTo(0, 0);
+    const hero = document.getElementById('hero');
+    if (hero) {
+      hero.scrollIntoView({ behavior: 'auto' });
+    }
   }, []);
 
   useEffect(() => {
