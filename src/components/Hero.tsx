@@ -39,7 +39,7 @@ const Hero = () => {
   }, [displayText, currentRoleIndex, isDeleting, roles]);
 
   return (
-    <section id="hero" className=" min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-cyber-dark via-cyber-dark/80 to-cyber-dark/60 ">
+    <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-cyber-dark via-cyber-dark/80 to-cyber-dark/60 ">
       {/* Subtle animated background grid */}
       <div className="absolute inset-0 opacity-5 pointer-events-none z-0">
         <div className="grid grid-cols-20 grid-rows-20 w-full h-full">
@@ -54,28 +54,7 @@ const Hero = () => {
       </div>
 
       {/* Left and Right Images with overlays and fade effects */}
-      <div className="absolute inset-0 w-full h-full flex justify-between z-10 pointer-events-none">
-        {/* Left image */}
-        <div className="relative h-full w-1/2 max-w-[40vw] min-w-[180px]">
-          <img
-            src={leftimage}
-            alt="left visual"
-            className="absolute left-0 top-0 h-full w-full object-cover select-none opacity-80 animate-fade-in-left"
-            style={{ zIndex: 1 }}
-          />
-          <div className="absolute left-0 top-0 h-full w-full bg-black/0" style={{ zIndex: 2 }}></div>
-        </div>
-        {/* Right image */}
-        <div className="relative h-full w-1/2 max-w-[40vw] min-w-[180px]">
-          <img
-            src={rightimage}
-            alt="right visual"
-            className="absolute right-0 top-0 h-full w-full object-cover select-none opacity-80 animate-fade-in-right"
-            style={{ zIndex: 1 }}
-          />
-          <div className="absolute right-0 top-0 h-full w-full bg-black/0" style={{ zIndex: 2 }}></div>
-        </div>
-      </div>
+      <AnimatedImages />
 
   {/* Floating code snippets */}
       <div className="absolute inset-0 pointer-events-none">
@@ -166,6 +145,56 @@ const Hero = () => {
         ))}
       </div>
     </section>
+  );
+};
+
+import { useRef } from 'react';
+
+const AnimatedImages = () => {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    const timer = setTimeout(() => setMounted(true), 4000); // 1.5s delay before moving
+    return () => clearTimeout(timer);
+  }, []);
+  return (
+    <div className="absolute inset-0 w-full h-full flex justify-between z-10 pointer-events-none">
+      {/* Left image */}
+      <div
+        className="relative h-full w-1/2 max-w-[40vw] min-w-[180px]"
+        style={{
+          transition: 'transform 1.2s cubic-bezier(0.4,0,0.2,1)',
+          transform: mounted
+            ? 'translateX(0)'
+            : 'translateX(50.1vw)',
+        }}
+      >
+        <img
+          src={leftimage}
+          alt="left visual"
+          className="absolute left-0 top-0 h-full w-full object-cover select-none opacity-80 animate-fade-in-left"
+          style={{ zIndex: 1 }}
+        />
+        <div className="absolute left-0 top-0 h-full w-full bg-black/0" style={{ zIndex: 2 }}></div>
+      </div>
+      {/* Right image */}
+      <div
+        className="relative h-full w-1/2 max-w-[40vw] min-w-[180px]"
+        style={{
+          transition: 'transform 1.2s cubic-bezier(0.4,0,0.2,1)',
+          transform: mounted
+            ? 'translateX(0)'
+            : 'translateX(-49.3vw)',
+        }}
+      >
+        <img
+          src={rightimage}
+          alt="right visual"
+          className="absolute right-0 top-0 h-full w-full object-cover select-none opacity-80 animate-fade-in-right"
+          style={{ zIndex: 1 }}
+        />
+        <div className="absolute right-0 top-0 h-full w-full bg-black/0" style={{ zIndex: 2 }}></div>
+      </div>
+    </div>
   );
 };
 
