@@ -49,7 +49,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="text-2xl font-orbitron font-bold">
-            <span className="text-gradient glow-text">P.S</span>
+            <span className="text-gradient glow-text">S.P.S</span>
           </div>
 
           {/* Navigation Items */}
@@ -88,7 +88,7 @@ const Navbar = () => {
       </div>
 
       {/* Scan line effect */}
-      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-neon-cyan to-transparent opacity-50"></div>
+      <div className="absolute bottom-2 left-0 w-full h-px bg-gradient-to-r from-transparent via-neon-cyan to-transparent opacity-50"></div>
     </nav>
   );
 };

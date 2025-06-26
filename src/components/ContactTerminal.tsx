@@ -1,5 +1,5 @@
-
 import { useState, useEffect, useRef } from 'react';
+import emailjs from 'emailjs-com';
 
 interface FormData {
   name: string;
@@ -122,22 +122,26 @@ const ContactTerminal = () => {
     setIsProcessing(true);
     addTerminalLine({ type: 'output', content: 'PROCESSING MESSAGE...' });
     
-    // Simulate API call
-    setTimeout(() => {
-      addTerminalLine({ type: 'output', content: 'CONNECTING TO SERVER...' });
-      
-      setTimeout(() => {
-        addTerminalLine({ type: 'output', content: 'ENCRYPTING DATA...' });
-        
-        setTimeout(() => {
-          addTerminalLine({ type: 'success', content: '✓ MESSAGE SENT SUCCESSFULLY!' });
-          addTerminalLine({ type: 'success', content: '✓ THANK YOU FOR CONTACTING PAWARA SASMINA' });
-          addTerminalLine({ type: 'output', content: '> RESPONSE EXPECTED WITHIN 24 HOURS' });
-          addTerminalLine({ type: 'output', content: '> TYPE "RESET" TO START OVER' });
-          setIsProcessing(false);
-        }, 1000);
-      }, 1000);
-    }, 1000);
+    // Send email using EmailJS
+    try {
+      await emailjs.send(
+        'service_r6r9dwi', // replace with your EmailJS service ID
+        'template_9w0wuic', // replace with your EmailJS template ID
+        {
+          from_name: data.name,
+          from_email: data.email,
+          message: data.message
+        },
+        'AjuF7Kzd1C57NZ8Hn' // replace with your EmailJS public key
+      );
+      addTerminalLine({ type: 'success', content: '✓ MESSAGE SENT SUCCESSFULLY!' });
+      addTerminalLine({ type: 'success', content: '✓ THANK YOU FOR CONTACTING PAWARA SASMINA' });
+      addTerminalLine({ type: 'output', content: '> RESPONSE EXPECTED WITHIN 24 HOURS' });
+      addTerminalLine({ type: 'output', content: '> TYPE "RESET" TO START OVER' });
+    } catch (error) {
+      addTerminalLine({ type: 'error', content: 'ERROR: Failed to send message. Please try again later.' });
+    }
+    setIsProcessing(false);
 
     // In a real app, you would send the data to your backend or email service
     console.log('Form submitted:', data);
@@ -189,7 +193,7 @@ const ContactTerminal = () => {
 
         <div className="max-w-4xl mx-auto">
           {/* Terminal Container */}
-          <div className="glass-effect rounded-lg border border-neon-green/50 shadow-neon-green overflow-hidden">
+          <div className="glass-effect rounded-lg border border-neon-green/50 shadow-sm overflow-hidden">
             {/* Terminal Header */}
             <div className="bg-cyber-gray/50 px-6 py-3 border-b border-neon-green/30 flex items-center justify-between">
               <div className="flex items-center space-x-3">
@@ -232,15 +236,25 @@ const ContactTerminal = () => {
               ))}
 
               {/* Current Input Line */}
-              {currentStep !== 'complete' && !isProcessing && (
+              {(currentStep !== 'complete' || (currentStep === 'complete' && !isProcessing)) && (
                 <div className="flex items-center">
                   <span className="text-neon-cyan mr-2">
                     [{getPromptText()}]$
                   </span>
-                  <span className="text-white">{currentInput}</span>
-                  <span className={`text-neon-green ml-1 ${cursorVisible ? 'opacity-100' : 'opacity-0'}`}>
-                    |
-                  </span>
+                  <input
+                    ref={inputRef}
+                    type="text"
+                    value={currentInput}
+                    onChange={(e) => setCurrentInput(e.target.value)}
+                    onKeyDown={handleKeyDown}
+                    className="bg-transparent text-white font-mono text-sm outline-none flex-1"
+                    disabled={isProcessing && currentStep === 'complete'}
+                    autoComplete="off"
+                    autoCorrect="off"
+                    autoCapitalize="off"
+                    spellCheck="false"
+                  />
+                  <span className={`text-neon-green ml-1 ${cursorVisible ? 'opacity-100' : 'opacity-0'}`}>|</span>
                 </div>
               )}
 
@@ -255,21 +269,6 @@ const ContactTerminal = () => {
                   </div>
                 </div>
               )}
-
-              {/* Input Field - Now properly positioned and accessible */}
-              <input
-                ref={inputRef}
-                type="text"
-                value={currentInput}
-                onChange={(e) => setCurrentInput(e.target.value)}
-                onKeyDown={handleKeyDown}
-                className="absolute inset-0 w-full h-full bg-transparent text-transparent caret-transparent border-none outline-none resize-none"
-                disabled={isProcessing || currentStep === 'complete'}
-                autoComplete="off"
-                autoCorrect="off"
-                autoCapitalize="off"
-                spellCheck="false"
-              />
             </div>
 
             {/* Terminal Footer */}

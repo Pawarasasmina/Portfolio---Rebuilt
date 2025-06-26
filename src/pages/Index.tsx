@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from 'react';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
@@ -16,6 +15,11 @@ const Index = () => {
 
   // Konami Code: ↑↑↓↓←→←→BA
   const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'KeyB', 'KeyA'];
+
+  // Scroll to top on mount
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -64,7 +68,7 @@ const Index = () => {
       <CursorTrail />
       <Navbar />
       
-      <main>
+      <main className="pt-16">
         <Hero />
         <About />
         <Projects />

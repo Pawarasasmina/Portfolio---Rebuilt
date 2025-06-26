@@ -1,48 +1,138 @@
-
 import { useState } from 'react';
+import adressbook from '../assets/adressbook.jpeg';
+import pathfinder from '../assets/pathfinder.png';
+import pixelplaza from '../assets/pixelplasa.png';
+import healthcare from '../assets/healthcare.png';
+import highway from '../assets/highway.png';
+import lanerunner from '../assets/lanerunner.png';
+import dilubeats from '../assets/dilubeats.png';
+import job from '../assets/job.jpeg';
+import tailorshop from '../assets/tailorshop.png';
+import company from '../assets/company.png';
 
 const Projects = () => {
   const [hoveredProject, setHoveredProject] = useState<number | null>(null);
+  const [showAll, setShowAll] = useState(false);
 
   const projects = [
     {
       id: 1,
-      title: 'E-Commerce Platform',
-      description: 'Full-stack MERN application with real-time inventory management and payment integration.',
-      image: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=800&q=80',
-      tech: ['React', 'Node.js', 'MongoDB', 'Stripe API'],
-      github: 'https://github.com',
-      demo: 'https://demo.com',
+      title: 'DILU Beats',
+      description: 'Developed a portfolio website for Sri Lankan famous music producer as a freelancing project.',
+      image: dilubeats, // Placeholder, update if you have a real image
+      tech: ['React', 'Vite', 'Tailwind CSS', 'JavaScript'],
+      github: 'https://github.com/Pawarasasmina/Web-site-for-singer.git',
+      demo: 'https://dilubeats.com',
       status: 'Production'
     },
     {
       id: 2,
-      title: 'Mobile Task Manager',
-      description: 'Cross-platform mobile app with offline-first architecture and real-time sync.',
-      image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=800&q=80',
-      tech: ['React Native', 'Firebase', 'Redux', 'TypeScript'],
-      github: 'https://github.com',
-      demo: 'https://demo.com',
-      status: 'Beta'
+      title: 'Neuriox IT Landing Page',
+      description: 'Developed a modern landing page for my own freelancing web company.',
+      image: company, // Placeholder
+      tech: ['React', 'Vite', 'Tailwind CSS', 'TypeScript'],
+      github: 'https://github.com/Pawarasasmina/neuriOx-company_portfolio.git',
+      demo: 'https://neurioxit.systems',
+      status: 'Production'
     },
     {
       id: 3,
-      title: 'AI Dashboard Analytics',
-      description: 'Machine learning powered analytics dashboard with predictive insights and data visualization.',
-      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80',
-      tech: ['Python', 'TensorFlow', 'React', 'D3.js'],
-      github: 'https://github.com',
-      demo: 'https://demo.com',
-      status: 'Development'
+      title: 'Sisira Tailors',
+      description: 'Built a displaying website for a Sri Lankan clothing businessman as a freelancing project.',
+      image: tailorshop, // Placeholder
+      tech: ['React', 'Vite', 'Tailwind CSS', 'JavaScript'],
+      github: 'https://github.com/Pawarasasmina/Sisira_Tailors.git',
+      demo: 'https://sisira-tailors.vercel.app/',
+      status: 'Production'
     },
     {
       id: 4,
-      title: 'Blockchain Voting System',
-      description: 'Decentralized voting platform ensuring transparency and security using smart contracts.',
-      image: 'https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&w=800&q=80',
-      tech: ['Solidity', 'Web3.js', 'React', 'Ethereum'],
-      github: 'https://github.com',
-      demo: 'https://demo.com',
+      title: 'Pixel Plaza',
+      description: 'Developed a web-based shopping mall system to improve shopping experience beyond normal e-commerce platforms.',
+      image: pixelplaza,
+      tech: ['MERN Stack', 'Vite', 'Tailwind CSS', 'JWT', 'Bcrypt', 'JavaScript'],
+      github: 'https://github.com/Pawarasasmina/Pixel-Plaza---Online-Shopping-Mall.git',
+      demo: '',
+      status: 'Development'
+    },
+    {
+      id: 5,
+      title: 'Online Healthcare System',
+      description: 'Developed a web-based e-channeling and medical details sharing system.',
+      image: healthcare,
+      tech: ['MERN Stack', 'Vite', 'Tailwind CSS', 'JavaScript'],
+      github: 'https://github.com/Pawarasasmina/Smart_HealthCare_System.git',
+      demo: '',
+      status: 'Development'
+    },
+    {
+      id: 6,
+      title: 'Path Finder',
+      description: 'A cross platform mobile application to address urban traffic problems.',
+      image: pathfinder,
+      tech: ['Flutter', 'Dart', 'Android Studio'],
+      github: 'https://github.com/Pawarasasmina/Path-Finder.git',
+      demo: '',
+      status: 'Prototype'
+    },
+    {
+      id: 7,
+      title: 'Online Seat Booking System',
+      description: 'Developed a web-based highway bus ticket booking system.',
+      image: highway,
+      tech: ['MERN Stack', 'Vite', 'Bootstrap CSS', 'Bcrypt', 'JWT', 'JavaScript'],
+      github: 'https://github.com/Pawarasasmina/Online-seat-booking-system.git',
+      demo: '',
+      status: 'Prototype'
+    },
+    {
+      id: 8,
+      title: 'Lane Runner',
+      description: 'Developed a simple mobile game for Android.',
+      image: lanerunner,
+      tech: ['Kotlin', 'XML', 'Android Studio'],
+      github: 'https://github.com/Pawarasasmina/LaneRunner.git',
+      demo: '',
+      status: 'Prototype'
+    },
+    {
+      id: 9,
+      title: 'Address Book',
+      description: 'Simple Android mobile application for managing addresses of people.',
+      image: adressbook,
+      tech: ['Kotlin', 'XML', 'SQLite', 'Android Studio'],
+      github: 'https://github.com/Pawarasasmina/Address-Book.git',
+      demo: '',
+      status: 'Prototype'
+    },
+    {
+      id: 10,
+      title: 'Sky-On-Eye',
+      description: 'Web based online movie ticket booking system.',
+      image: company, // Placeholder
+      tech: ['PHP', 'HTML', 'JavaScript', 'CSS'],
+      github: 'https://github.com/Pawarasasmina/Sky-On-Eye.git',
+      demo: '',
+      status: 'Prototype'
+    },
+    {
+      id: 11,
+      title: 'Online Music Store',
+      description: 'Developed a web-based music listening and purchasing system.',
+      image: '',
+      tech: ['Java', 'Bootstrap CSS', 'OOP'],
+      github: 'https://github.com/Pawarasasmina/Online-Music-Store.git',
+      demo: '',
+      status: 'Prototype'
+    },
+    {
+      id: 12,
+      title: 'Fitness Master',
+      description: 'CRUD operations for online nutritional plans and fitness planning with frontend and backend interactions.',
+      image: '',
+      tech: ['PHP', 'HTML', 'JavaScript', 'CSS'],
+      github: 'https://github.com/Pawarasasmina/Project-06---Fitness-Master.git',
+      demo: '',
       status: 'Prototype'
     }
   ];
@@ -53,6 +143,9 @@ const Projects = () => {
     'Development': 'text-neon-yellow border-neon-yellow',
     'Prototype': 'text-neon-magenta border-neon-magenta'
   };
+
+  // Determine which projects to show
+  const visibleProjects = showAll ? projects : projects.slice(0, 4);
 
   return (
     <section id="projects" className="py-20 relative">
@@ -70,7 +163,7 @@ const Projects = () => {
 
         {/* Projects Grid */}
         <div className="grid md:grid-cols-2 gap-8">
-          {projects.map((project, index) => (
+          {visibleProjects.map((project, index) => (
             <div
               key={project.id}
               className="group relative"
@@ -173,9 +266,11 @@ const Projects = () => {
 
         {/* View More Projects Button */}
         <div className="text-center mt-12">
-          <button className="cyber-button">
-            View All Projects
-          </button>
+          {!showAll && projects.length > 4 && (
+            <button className="cyber-button" onClick={() => setShowAll(true)}>
+              View All Projects
+            </button>
+          )}
         </div>
       </div>
 

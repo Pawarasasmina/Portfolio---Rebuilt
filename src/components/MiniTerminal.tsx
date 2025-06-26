@@ -1,4 +1,3 @@
-
 import { useState, useRef, useEffect } from 'react';
 
 const MiniTerminal = () => {
@@ -20,7 +19,8 @@ const MiniTerminal = () => {
       '• contact - Scroll to contact section',
       '• clear - Clear terminal history',
       '• time - Show current time',
-      '• joke - Tell a programming joke'
+      '• joke - Tell a programming joke',
+      '• close - Close the mini terminal'
     ],
     projects: () => {
       document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
@@ -50,7 +50,11 @@ const MiniTerminal = () => {
       'Because light attracts bugs! 🐛',
       '...',
       'Get it? Bugs? 😄'
-    ]
+    ],
+    close: () => {
+      setIsOpen(false);
+      return ['Mini terminal closed.'];
+    }
   };
 
   const handleCommand = (cmd: string) => {
@@ -82,12 +86,12 @@ const MiniTerminal = () => {
   }, [isOpen]);
 
   return (
-    <div className="fixed bottom-6 right-6 z-40">
+    <div className="fixed bottom-6 left-6 z-40">
       {/* Terminal Window */}
       <div className={`transition-all duration-300 ${
         isOpen ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'
       }`}>
-        <div className="glass-effect border border-neon-cyan/50 rounded-lg w-80 h-64 flex flex-col overflow-hidden">
+        <div className="glass-effect border border-neon-cyan/50 rounded-lg w-96 h-80 flex flex-col overflow-hidden">
           {/* Terminal Header */}
           <div className="bg-cyber-gray/50 px-4 py-2 border-b border-neon-cyan/30 flex items-center justify-between">
             <div className="flex items-center space-x-2">
@@ -135,7 +139,7 @@ const MiniTerminal = () => {
       {/* Toggle Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className={`mt-4 glass-effect border border-neon-cyan/50 rounded-full w-12 h-12 flex items-center justify-center text-neon-cyan hover:shadow-neon-cyan transition-all duration-300 ${
+        className={`mt-4 glass-effect border border-neon-cyan/50 rounded-full w-16 h-16 flex items-center justify-center text-neon-cyan hover:shadow-neon-cyan transition-all duration-300 ${
           isOpen ? 'rotate-180' : ''
         }`}
       >
