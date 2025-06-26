@@ -152,18 +152,29 @@ import { useRef } from 'react';
 
 const AnimatedImages = () => {
   const [mounted, setMounted] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
-    const timer = setTimeout(() => setMounted(true), 4000); // 1.5s delay before moving
-    return () => clearTimeout(timer);
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
   }, []);
+  useEffect(() => {
+    if (!isMobile) {
+      const timer = setTimeout(() => setMounted(true), 4000);
+      return () => clearTimeout(timer);
+    } else {
+      setMounted(true);
+    }
+  }, [isMobile]);
   return (
     <div className="absolute inset-0 w-full h-full flex justify-between z-10 pointer-events-none">
       {/* Left image */}
       <div
-        className="relative h-full w-1/2 max-w-[40vw] min-w-[180px]"
+        className="relative h-full w-1/2 max-w-[40vw] min-w-[100px]"
         style={{
-          transition: 'transform 1.2s cubic-bezier(0.4,0,0.2,1)',
-          transform: mounted
+          transition: isMobile ? undefined : 'transform 1.2s cubic-bezier(0.4,0,0.2,1)',
+          transform: mounted || isMobile
             ? 'translateX(0)'
             : 'translateX(50.1vw)',
         }}
@@ -178,10 +189,10 @@ const AnimatedImages = () => {
       </div>
       {/* Right image */}
       <div
-        className="relative h-full w-1/2 max-w-[40vw] min-w-[180px]"
+        className="relative h-full w-1/2 max-w-[40vw] min-w-[100px]"
         style={{
-          transition: 'transform 1.2s cubic-bezier(0.4,0,0.2,1)',
-          transform: mounted
+          transition: isMobile ? undefined : 'transform 1.2s cubic-bezier(0.4,0,0.2,1)',
+          transform: mounted || isMobile
             ? 'translateX(0)'
             : 'translateX(-49.3vw)',
         }}

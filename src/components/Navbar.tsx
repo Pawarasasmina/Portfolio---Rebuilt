@@ -1,9 +1,9 @@
-
 import { useState, useEffect } from 'react';
 
 const Navbar = () => {
   const [activeSection, setActiveSection] = useState('hero');
   const [isScrolled, setIsScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navItems = [
     { id: 'hero', label: 'Home' },
@@ -34,10 +34,23 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Prevent background scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [mobileMenuOpen]);
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
+      setMobileMenuOpen(false); // close mobile menu on navigation
     }
   };
 
@@ -52,7 +65,7 @@ const Navbar = () => {
             <span className="text-gradient glow-text">S.P.S</span>
           </div>
 
-          {/* Navigation Items */}
+          {/* Navigation Items (Desktop) */}
           <div className="hidden md:flex space-x-8">
             {navItems.map((item) => (
               <button
@@ -77,7 +90,7 @@ const Navbar = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <button className="md:hidden p-2">
+          <button className="md:hidden p-2" onClick={() => setMobileMenuOpen((v) => !v)} aria-label="Open menu">
             <div className="w-6 h-6 flex flex-col justify-center items-center">
               <span className="w-full h-0.5 bg-neon-cyan mb-1 transition-all duration-300"></span>
               <span className="w-full h-0.5 bg-neon-cyan mb-1 transition-all duration-300"></span>
@@ -86,6 +99,31 @@ const Navbar = () => {
           </button>
         </div>
       </div>
+
+      {/* Mobile Menu Overlay */}
+      {mobileMenuOpen && (
+        <div className="fixed top-0 left-0 w-screen h-screen z-[999] bg-cyber-dark/95 flex flex-col items-center justify-center md:hidden animate-fade-in">
+          {navItems.map((item) => (
+            <button
+              key={item.id}
+              onClick={() => scrollToSection(item.id)}
+              className={`my-3 text-2xl font-orbitron uppercase tracking-widest px-8 py-3 rounded-lg transition-all duration-200 ${
+                activeSection === item.id
+                  ? 'text-neon-cyan glow-text'
+                  : 'text-gray-200 hover:text-neon-cyan'
+              }`}
+            >
+              {item.label}
+            </button>
+          ))}
+          <button
+            onClick={() => setMobileMenuOpen(false)}
+            className="mt-8 text-neon-magenta font-bold text-lg underline"
+          >
+            Close
+          </button>
+        </div>
+      )}
 
       {/* Scan line effect */}
       <div className="absolute bottom-2 left-0 w-full h-px bg-gradient-to-r from-transparent via-neon-cyan to-transparent opacity-50"></div>
