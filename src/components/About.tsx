@@ -1,3 +1,5 @@
+import { motion } from 'framer-motion';
+
 const About = () => {
   const timelineData = [
     {
@@ -31,7 +33,19 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="py-20 relative overflow-x-hidden">
+    <motion.section
+      id="about"
+      className="py-20 relative overflow-x-hidden"
+      initial={{ opacity: 0, y: 60 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{ duration: 1.1, ease: 'easeOut' }}
+    >
+      {/* Cinematic scanline overlay */}
+      <div className="pointer-events-none absolute inset-0 z-30" style={{ mixBlendMode: 'overlay' }}>
+        <div className="w-full h-full bg-repeat opacity-10" style={{ backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 2px, #fff 2px, #fff 3px)' }} />
+      </div>
+
       <div className="container mx-auto px-6">
         {/* Section Header */}
         <div className="text-center mb-16">
@@ -98,7 +112,14 @@ const About = () => {
               {/* Timeline line */}
               <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-neon-cyan to-neon-magenta"></div>
               {timelineData.map((item, index) => (
-                <div key={index} className="relative flex items-start mb-10">
+                <motion.div
+                  key={index}
+                  className="relative flex items-start mb-10"
+                  initial={{ opacity: 0, x: -40 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{ duration: 0.7, delay: index * 0.15, ease: 'easeOut' }}
+                >
                   {/* Timeline dot */}
                   <div className={`w-12 h-12 rounded-full flex items-center justify-center border-2 z-10 shadow-lg ${
                     item.type === 'education' 
@@ -116,7 +137,7 @@ const About = () => {
                     <div className="text-neon-magenta font-semibold mb-2">{item.company}</div>
                     <p className="text-gray-300 text-sm">{item.description}</p>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
             {/* Bio Text */}
@@ -138,7 +159,7 @@ const About = () => {
       {/* Neon circuit lines for extra cyberpunk flair */}
       <div className="absolute left-1/2 top-0 w-1 h-32 bg-gradient-to-b from-neon-cyan/40 to-transparent -translate-x-1/2 blur-sm"></div>
       <div className="absolute right-0 top-1/2 w-32 h-1 bg-gradient-to-l from-neon-magenta/40 to-transparent blur-sm"></div>
-    </section>
+    </motion.section>
   );
 };
 

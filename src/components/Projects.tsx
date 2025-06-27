@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 import adressbook from '../assets/adressbook.jpeg';
 import pathfinder from '../assets/pathfinder.png';
 import pixelplaza from '../assets/pixelplasa.png';
@@ -148,7 +149,19 @@ const Projects = () => {
   const visibleProjects = showAll ? projects : projects.slice(0, 4);
 
   return (
-    <section id="projects" className="py-20 relative">
+    <motion.section
+      id="projects"
+      className="py-20 relative"
+      initial={{ opacity: 0, y: 60 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{ duration: 1.1, ease: 'easeOut' }}
+    >
+      {/* Cinematic scanline overlay */}
+      <div className="pointer-events-none absolute inset-0 z-30" style={{ mixBlendMode: 'overlay' }}>
+        <div className="w-full h-full bg-repeat opacity-10" style={{ backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 2px, #fff 2px, #fff 3px)' }} />
+      </div>
+
       <div className="container mx-auto px-6">
         {/* Section Header */}
         <div className="text-center mb-16">
@@ -164,11 +177,14 @@ const Projects = () => {
         {/* Projects Grid */}
         <div className="grid md:grid-cols-2 gap-8">
           {visibleProjects.map((project, index) => (
-            <div
+            <motion.div
               key={project.id}
               className="group relative"
               onMouseEnter={() => setHoveredProject(index)}
               onMouseLeave={() => setHoveredProject(null)}
+              whileHover={{ scale: 1.07, rotateZ: 1 }}
+              transition={{ type: 'spring', stiffness: 200, damping: 15 }}
+              style={{ perspective: 1000 }}
             >
               {/* Project Card */}
               <div className={`glass-effect rounded-lg overflow-hidden border transition-all duration-500 ${
@@ -260,7 +276,7 @@ const Projects = () => {
               <div className={`absolute -bottom-2 -left-2 w-4 h-4 bg-neon-magenta rounded-full transition-all duration-300 ${
                 hoveredProject === index ? 'animate-ping' : 'animate-pulse'
               }`} style={{ animationDelay: '0.5s' }}></div>
-            </div>
+            </motion.div>
           ))}
         </div>
 
@@ -282,7 +298,7 @@ const Projects = () => {
           ))}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 
