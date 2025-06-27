@@ -161,7 +161,7 @@ const AnimatedImages = () => {
   }, []);
   useEffect(() => {
     if (!isMobile) {
-      const timer = setTimeout(() => setMounted(true), 4000);
+      const timer = setTimeout(() => setMounted(true), 2000);
       return () => clearTimeout(timer);
     } else {
       setMounted(true);
