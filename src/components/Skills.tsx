@@ -1,5 +1,5 @@
+
 import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
 
 const Skills = () => {
   const [animatedSkills, setAnimatedSkills] = useState<{ [key: string]: number }>({});
@@ -109,19 +109,7 @@ const Skills = () => {
   };
 
   return (
-    <motion.section
-      id="skills"
-      className="py-20 relative"
-      initial={{ opacity: 0, y: 60 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.3 }}
-      transition={{ duration: 1.1, ease: 'easeOut' }}
-    >
-      {/* Cinematic scanline overlay */}
-      <div className="pointer-events-none absolute inset-0 z-30" style={{ mixBlendMode: 'overlay' }}>
-        <div className="w-full h-full bg-repeat opacity-10" style={{ backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 2px, #fff 2px, #fff 3px)' }} />
-      </div>
-
+    <section id="skills" className="py-20 relative">
       <div className="container mx-auto px-6">
         {/* Section Header */}
         <div className="text-center mb-16">
@@ -156,13 +144,10 @@ const Skills = () => {
             const colors = getColorClasses(category.color);
             
             return (
-              <motion.div
+              <div
                 key={categoryIndex}
                 className={`skill-category glass-effect rounded-lg p-6 border hover:${colors.shadow} transition-all duration-300 hover:scale-105`}
                 data-category-index={categoryIndex}
-                whileHover={{ scale: 1.07, rotateZ: 1 }}
-                transition={{ type: 'spring', stiffness: 200, damping: 15 }}
-                style={{ perspective: 1000 }}
               >
                 {/* Category Header */}
                 <div className="flex items-center mb-6">
@@ -209,7 +194,7 @@ const Skills = () => {
                 <div className={`mt-6 text-center border ${colors.border} rounded-full py-2 px-4 ${colors.text} font-mono text-xs`}>
                   {category.title.toUpperCase()} MASTERY
                 </div>
-              </motion.div>
+              </div>
             );
           })}
         </div>
@@ -251,7 +236,7 @@ const Skills = () => {
           </div>
         ))}
       </div>
-    </motion.section>
+    </section>
   );
 };
 

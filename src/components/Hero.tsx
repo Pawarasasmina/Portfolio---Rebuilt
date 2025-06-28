@@ -1,6 +1,9 @@
 import { useState, useEffect } from 'react';
 import leftimage from '../assets/image-1.png';
 import rightimage from '../assets/image-2.png';
+import { FaGithub, FaLinkedin, FaTwitter, FaInstagram, FaFacebook } from 'react-icons/fa';
+import { motion } from 'framer-motion';
+import myCV from '../assets/CV-Pawara Sasmina.pdf';
 
 const Hero = () => {
   const [displayText, setDisplayText] = useState('');
@@ -38,6 +41,26 @@ const Hero = () => {
     return () => clearTimeout(timer);
   }, [displayText, currentRoleIndex, isDeleting, roles]);
 
+  const socialLinks = [
+    {
+      href: 'https://github.com/Pawarasasmina',
+      icon: <FaGithub />, label: 'GitHub', color: 'hover:text',
+    },
+    {
+      href: 'https://linkedin.com/in/pawarasasmina',
+      icon: <FaLinkedin />, label: 'LinkedIn', color: 'hover:text-blue-600',
+    },
+
+    {
+      href: 'https://instagram.com/_p_a_w_a_r_a_',
+      icon: <FaInstagram />, label: 'Instagram', color: 'hover:text-neon-magenta',
+    },
+        {
+      href: 'https://facebook.com/pawara.sasmina',
+      icon: <FaFacebook />, label: 'Twitter', color: 'hover:text-neon-blue',
+    }
+  ];
+
   return (
     <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-cyber-dark via-cyber-dark/80 to-cyber-dark/60 ">
       {/* Subtle animated background grid */}
@@ -57,7 +80,7 @@ const Hero = () => {
       <AnimatedImages />
 
   {/* Floating code snippets */}
-      <div className="absolute inset-0 pointer-events-none">
+      <div className="absolute inset-0 pointer-events-none z-10">
         <div className="absolute top-20 left-4 sm:left-10 text-white/90 font-mono text-xs sm:text-s animate-float max-w-[80vw] sm:max-w-none whitespace-nowrap">
           const developer = "Pawara Sasmina";
         </div>
@@ -73,11 +96,11 @@ const Hero = () => {
       </div>
 
       {/* One floating code snippet for accent */}
-      <div className="absolute top-36 sm:top-24 left-1/2 -translate-x-1/2 text-neon-cyan/80 font-mono text-xs sm:text-sm animate-float pointer-events-none select-none max-w-[90vw] whitespace-nowrap">
+      <div className="absolute top-36 sm:top-24 left-1/2 -translate-x-1/2 text-neon-cyan/80 font-mono text-xs sm:text-sm animate-float pointer-events-none select-none max-w-[90vw] whitespace-nowrap z-10">
         {'// Welcome to my portfolio!'}
       </div>
 
-      <div className="text-center z-10 max-w-4xl mx-auto px-6">
+      <div className="text-center z-[100] relative max-w-4xl mx-auto px-6">
         {/* Name with modern effect */}
         <h1 className="text-5xl md:text-7xl font-orbitron font-black mb-6 tracking-tight relative inline-block">
           <span className="text-gradient bg-gradient-to-r from-neon-magenta via-neon-cyan to-neon-purple bg-clip-text text-transparent drop-shadow-lg">
@@ -108,18 +131,50 @@ const Hero = () => {
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-5 justify-center items-center mt-2">
           <button 
-            onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
+            onClick={() => { alert('View Projects clicked'); document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' }); }}
             className="cyber-button px-8 py-3 text-lg font-bold shadow-neon-cyan/30 hover:scale-105 transition-transform"
           >
             View Projects
           </button>
+          <a
+            href={myCV}
+            download="CV-Pawara Sasmina.pdf"
+            onClick={() => { console.log('Download CV clicked'); }}
+            className="cyber-button border-neon-green text-neon-green hover:bg-neon-green hover:text-cyber-dark hover:shadow-neon-green px-8 py-3 text-lg font-bold transition-all flex items-center gap-2"
+            style={{ textDecoration: 'none' }}
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V4" /></svg>
+            Download CV
+          </a>
           <button 
-            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+            onClick={() => { alert('Initialize Contact clicked'); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }); }}
             className="cyber-button border-neon-magenta text-neon-magenta hover:bg-neon-magenta hover:text-white hover:shadow-neon-magenta px-8 py-3 text-lg font-bold transition-all"
           >
             Initialize Contact
           </button>
         </div>
+
+        {/* Social Media Links */}
+        <motion.div
+          className="flex justify-center gap-6 mt-8 mb-4"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.1, delay: 0.7, ease: 'easeOut' }}
+        >
+          {socialLinks.map((link, i) => (
+            <a
+              key={link.label}
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={link.label}
+              className={`text-3xl transition-transform duration-300 ${link.color} hover:scale-125 focus:scale-110 focus:outline-none`}
+              style={{ filter: 'drop-shadow(0 0 8px #00FFFF88)' }}
+            >
+              {link.icon}
+            </a>
+          ))}
+        </motion.div>
 
         {/* Scroll indicator */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
