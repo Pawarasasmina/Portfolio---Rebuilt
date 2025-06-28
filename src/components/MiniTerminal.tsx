@@ -91,7 +91,7 @@ const MiniTerminal = () => {
       <div className={`transition-all duration-300 ${
         isOpen ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'
       }`}>
-        <div className="glass-effect border border-neon-cyan/50 rounded-lg w-96 h-80 flex flex-col overflow-hidden">
+        <div className="glass-effect border border-neon-cyan/50 rounded-lg w-full max-w-xs sm:w-96 sm:max-w-none h-64 sm:h-80 flex flex-col overflow-hidden">
           {/* Terminal Header */}
           <div className="bg-cyber-gray/50 px-4 py-2 border-b border-neon-cyan/30 flex items-center justify-between">
             <div className="flex items-center space-x-2">

@@ -131,7 +131,7 @@ const Hero = () => {
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-5 justify-center items-center mt-2">
           <button 
-            onClick={() => { alert('View Projects clicked'); document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' }); }}
+            onClick={() => {  document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' }); }}
             className="cyber-button px-8 py-3 text-lg font-bold shadow-neon-cyan/30 hover:scale-105 transition-transform"
           >
             View Projects
@@ -147,7 +147,7 @@ const Hero = () => {
             Download CV
           </a>
           <button 
-            onClick={() => { alert('Initialize Contact clicked'); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }); }}
+            onClick={() => { document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }); }}
             className="cyber-button border-neon-magenta text-neon-magenta hover:bg-neon-magenta hover:text-white hover:shadow-neon-magenta px-8 py-3 text-lg font-bold transition-all"
           >
             Initialize Contact
