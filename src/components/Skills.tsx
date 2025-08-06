@@ -11,8 +11,7 @@ const Skills = () => {
       skills: [
         { name: 'React/Next.js', level: 90, icon: '⚛️' },
         { name: 'TypeScript', level: 85, icon: '📘' },
-        { name: 'Tailwind CSS', level: 95, icon: '🎨' },
-        { name: 'Vue.js', level: 75, icon: '💚' }
+        { name: 'HTML', level: 95, icon: '💚' }
       ]
     },
     {
@@ -20,41 +19,22 @@ const Skills = () => {
       color: 'neon-magenta',
       skills: [
         { name: 'Node.js', level: 88, icon: '🟢' },
-        { name: 'Python', level: 82, icon: '🐍' },
+        { name: 'PHP', level: 82, icon: '🐍' },
         { name: 'Express.js', level: 90, icon: '🚀' },
-        { name: 'GraphQL', level: 70, icon: '🔗' }
       ]
     },
-    {
-      title: 'Mobile',
-      color: 'neon-green',
-      skills: [
-        { name: 'React Native', level: 85, icon: '📱' },
-        { name: 'Flutter', level: 70, icon: '🦋' },
-        { name: 'Swift', level: 65, icon: '🍎' },
-        { name: 'Kotlin', level: 68, icon: '🤖' }
-      ]
-    },
+    
     {
       title: 'Database',
       color: 'neon-purple',
       skills: [
         { name: 'MongoDB', level: 88, icon: '🍃' },
-        { name: 'PostgreSQL', level: 80, icon: '🐘' },
-        { name: 'Redis', level: 75, icon: '🔴' },
-        { name: 'Firebase', level: 82, icon: '🔥' }
+        { name: 'SQL', level: 80, icon: '🐘' },
+        
+        { name: 'Firebase', level: 62, icon: '🔥' }
       ]
     },
-    {
-      title: 'DevOps',
-      color: 'neon-orange',
-      skills: [
-        { name: 'Docker', level: 78, icon: '🐳' },
-        { name: 'AWS', level: 72, icon: '☁️' },
-        { name: 'Git/GitHub', level: 92, icon: '🔧' },
-        { name: 'CI/CD', level: 70, icon: '🔄' }
-      ]
-    },
+  
     {
       title: 'Tools',
       color: 'neon-yellow',
@@ -62,7 +42,7 @@ const Skills = () => {
         { name: 'VS Code', level: 95, icon: '💻' },
         { name: 'Figma', level: 85, icon: '🎨' },
         { name: 'Postman', level: 88, icon: '📮' },
-        { name: 'Jira', level: 75, icon: '📋' }
+        
       ]
     }
   ];
@@ -139,7 +119,7 @@ const Skills = () => {
         </div>
 
         {/* Skills Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {skillCategories.map((category, categoryIndex) => {
             const colors = getColorClasses(category.color);
             
