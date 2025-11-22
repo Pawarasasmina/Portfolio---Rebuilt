@@ -1,11 +1,18 @@
 const About = () => {
   const timelineData = [
     {
-      year: '2025-Present',
+      year: '2025 Feb -2025 Aug',
       title: 'Software Engineering Intern',
       company: 'Mobitel (Pvt) Ltd',
       description: 'Contributed to Web application development and backend systems',
       type: 'internship'
+    },
+    {
+      year: '2024',
+      title: 'Higher National Diploma in Information Technology',
+      company: 'SLIIT - Sri Lanka Institute of Information Technology',
+      description: 'Successfully completed HND in Information Technology with distinction',
+      type: 'education'
     },
     {
       year: '2022-Present',
@@ -13,21 +20,14 @@ const About = () => {
       company: 'SLIIT - Sri Lanka Institute of Information Technology',
       description: 'Pursuing BSc (Hons) in Information Technology, specializing in Software Engineering',
       type: 'education'
-    },
-    {
-      year: '2021',
-      title: 'GCE A/L Examination',
-      company: 'St.Thomas\'s College, Matara',
-      description: 'Completed GCE Advanced Level with focus on Mathematics, Physics, and Chemistry',
-      type: 'education'
     }
   ];
 
   const achievements = [
-    { icon: '🏆', title: 'Software Engineering student', desc: 'Academic Excellence' },
-    { icon: '💻', title: 'Full Stack', desc: 'MERN Expert' },
-    { icon: '📱', title: 'Mobile Dev', desc: 'React Native' },
-    { icon: '🎨', title: 'UI/UX', desc: 'Design Systems' }
+    { icon: '🎓', title: 'Software Engineering', desc: 'Student' },
+    { icon: '🎨', title: 'Creative', desc: 'Designer' },
+    { icon: '💡', title: 'Solution', desc: 'Thinker' },
+    { icon: '🤝', title: 'Team', desc: 'Planner' }
   ];
 
   return (

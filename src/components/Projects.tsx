@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Github, ExternalLink } from 'lucide-react';
 import adressbook from '../assets/adressbook.jpeg';
 import pathfinder from '../assets/pathfinder.png';
 import pixelplaza from '../assets/pixelplasa.png';
@@ -9,6 +10,7 @@ import dilubeats from '../assets/dilubeats.png';
 import job from '../assets/job.jpeg';
 import tailorshop from '../assets/tailorshop.png';
 import company from '../assets/company.png';
+import CQ from '../assets/cq.png';
 
 const Projects = () => {
   const [hoveredProject, setHoveredProject] = useState<number | null>(null);
@@ -18,8 +20,8 @@ const Projects = () => {
     {
       id: 1,
       title: 'DILU Beats',
-      description: 'Developed a portfolio website for Sri Lankan famous music producer as a freelancing project.',
-      image: dilubeats, // Placeholder, update if you have a real image
+      description: 'Professional portfolio website for Sri Lankan music producer featuring interactive design and seamless user experience.',
+      image: dilubeats,
       tech: ['React', 'Vite', 'Tailwind CSS', 'JavaScript'],
       github: 'https://github.com/Pawarasasmina/Web-site-for-singer.git',
       demo: 'https://dilubeats.com',
@@ -27,38 +29,48 @@ const Projects = () => {
     },
     {
       id: 2,
-      title: 'Neuriox IT Landing Page',
-      description: 'Developed a modern landing page for my own freelancing web company.',
-      image: company, // Placeholder
+      title: 'CQ Group Landing Page',
+      description: 'Modern, responsive landing page for UK-based IT solutions company with professional design and animations.',
+      image: CQ,
       tech: ['React', 'Vite', 'Tailwind CSS', 'TypeScript'],
       github: 'https://github.com/Pawarasasmina/neuriOx-company_portfolio.git',
-      demo: 'https://neurioxit.systems',
+      demo: 'https://www.cqgroup.co.uk',
       status: 'Production'
     },
     {
       id: 3,
+      title: 'Neuriox IT Landing Page',
+      description: 'Elegant landing page for freelancing web development company showcasing services and portfolio.',
+      image: company,
+      tech: ['React', 'Vite', 'Tailwind CSS', 'TypeScript'],
+      github: 'https://github.com/nerioxIt/company-website.git',
+      demo: 'https://neurioxit.systems',
+      status: 'Production'
+    },
+    {
+      id: 4,
       title: 'Sisira Tailors',
-      description: 'Built a displaying website for a Sri Lankan clothing businessman as a freelancing project.',
-      image: tailorshop, // Placeholder
+      description: 'Professional display website for Sri Lankan clothing business featuring product showcase and contact integration.',
+      image: tailorshop,
       tech: ['React', 'Vite', 'Tailwind CSS', 'JavaScript'],
       github: 'https://github.com/Pawarasasmina/Sisira_Tailors.git',
       demo: 'https://sisira-tailors.vercel.app/',
       status: 'Production'
     },
     {
-      id: 4,
+      id: 5,
       title: 'Pixel Plaza',
-      description: 'Developed a web-based shopping mall system to improve shopping experience beyond normal e-commerce platforms.',
+      description: 'Comprehensive web-based shopping mall system with advanced features beyond traditional e-commerce platforms.',
       image: pixelplaza,
-      tech: ['MERN Stack', 'Vite', 'Tailwind CSS', 'JWT', 'Bcrypt', 'JavaScript'],
+      tech: ['MERN Stack', 'Vite', 'Tailwind CSS', 'JWT', 'JavaScript'],
       github: 'https://github.com/Pawarasasmina/Pixel-Plaza---Online-Shopping-Mall.git',
       demo: '',
       status: 'Development'
     },
     {
-      id: 5,
+      id: 6,
       title: 'Online Healthcare System',
-      description: 'Developed a web-based e-channeling and medical details sharing system.',
+      description: 'Full-featured e-channeling platform for medical appointments and health record management with secure authentication.',
       image: healthcare,
       tech: ['MERN Stack', 'Vite', 'Tailwind CSS', 'JavaScript'],
       github: 'https://github.com/Pawarasasmina/Smart_HealthCare_System.git',
@@ -66,9 +78,9 @@ const Projects = () => {
       status: 'Development'
     },
     {
-      id: 6,
+      id: 7,
       title: 'Path Finder',
-      description: 'A cross platform mobile application to address urban traffic problems.',
+      description: 'Cross-platform mobile application addressing urban traffic congestion with intelligent route suggestions.',
       image: pathfinder,
       tech: ['Flutter', 'Dart', 'Android Studio'],
       github: 'https://github.com/Pawarasasmina/Path-Finder.git',
@@ -76,19 +88,19 @@ const Projects = () => {
       status: 'Prototype'
     },
     {
-      id: 7,
-      title: 'Online Seat Booking System',
-      description: 'Developed a web-based highway bus ticket booking system.',
+      id: 8,
+      title: 'Highway Bus Booking',
+      description: 'Streamlined web-based ticket booking system for highway bus services with real-time seat availability.',
       image: highway,
-      tech: ['MERN Stack', 'Vite', 'Bootstrap CSS', 'Bcrypt', 'JWT', 'JavaScript'],
+      tech: ['MERN Stack', 'Vite', 'Bootstrap', 'JWT', 'JavaScript'],
       github: 'https://github.com/Pawarasasmina/Online-seat-booking-system.git',
       demo: '',
       status: 'Prototype'
     },
     {
-      id: 8,
+      id: 9,
       title: 'Lane Runner',
-      description: 'Developed a simple mobile game for Android.',
+      description: 'Engaging Android mobile game with smooth gameplay mechanics and intuitive controls.',
       image: lanerunner,
       tech: ['Kotlin', 'XML', 'Android Studio'],
       github: 'https://github.com/Pawarasasmina/LaneRunner.git',
@@ -96,9 +108,9 @@ const Projects = () => {
       status: 'Prototype'
     },
     {
-      id: 9,
+      id: 10,
       title: 'Address Book',
-      description: 'Simple Android mobile application for managing addresses of people.',
+      description: 'Efficient Android application for contact management with local database storage and search functionality.',
       image: adressbook,
       tech: ['Kotlin', 'XML', 'SQLite', 'Android Studio'],
       github: 'https://github.com/Pawarasasmina/Address-Book.git',
@@ -106,30 +118,30 @@ const Projects = () => {
       status: 'Prototype'
     },
     {
-      id: 10,
+      id: 11,
       title: 'Sky-On-Eye',
-      description: 'Web based online movie ticket booking system.',
-      image: company, // Placeholder
+      description: 'Web-based movie ticket booking platform with theater selection and seat reservation capabilities.',
+      image: job,
       tech: ['PHP', 'HTML', 'JavaScript', 'CSS'],
       github: 'https://github.com/Pawarasasmina/Sky-On-Eye.git',
       demo: '',
       status: 'Prototype'
     },
     {
-      id: 11,
+      id: 12,
       title: 'Online Music Store',
-      description: 'Developed a web-based music listening and purchasing system.',
-      image: '',
-      tech: ['Java', 'Bootstrap CSS', 'OOP'],
+      description: 'Complete music streaming and purchasing platform with user authentication and payment integration.',
+      image: company,
+      tech: ['Java', 'Bootstrap', 'OOP'],
       github: 'https://github.com/Pawarasasmina/Online-Music-Store.git',
       demo: '',
       status: 'Prototype'
     },
     {
-      id: 12,
+      id: 13,
       title: 'Fitness Master',
-      description: 'CRUD operations for online nutritional plans and fitness planning with frontend and backend interactions.',
-      image: '',
+      description: 'Comprehensive fitness planning platform with nutritional guidance and workout tracking features.',
+      image: healthcare,
       tech: ['PHP', 'HTML', 'JavaScript', 'CSS'],
       github: 'https://github.com/Pawarasasmina/Project-06---Fitness-Master.git',
       demo: '',
@@ -138,14 +150,14 @@ const Projects = () => {
   ];
 
   const statusColors = {
-    'Production': 'text-neon-green border-neon-green',
-    'Beta': 'text-neon-cyan border-neon-cyan',
-    'Development': 'text-neon-yellow border-neon-yellow',
-    'Prototype': 'text-neon-magenta border-neon-magenta'
+    'Production': 'bg-neon-green/10 text-neon-green border-neon-green',
+    'Beta': 'bg-neon-cyan/10 text-neon-cyan border-neon-cyan',
+    'Development': 'bg-neon-yellow/10 text-neon-yellow border-neon-yellow',
+    'Prototype': 'bg-neon-magenta/10 text-neon-magenta border-neon-magenta'
   };
 
-  // Determine which projects to show
-  const visibleProjects = showAll ? projects : projects.slice(0, 4);
+  // Show 6 projects by default, then all when clicked
+  const visibleProjects = showAll ? projects : projects.slice(0, 6);
 
   return (
     <section id="projects" className="py-20 relative">
@@ -156,13 +168,13 @@ const Projects = () => {
             <span className="text-gradient glow-text">PROJECTS.DIR</span>
           </h2>
           <p className="text-gray-400 font-mono max-w-2xl mx-auto">
-            <span className="command-line">Innovative solutions crafted with cutting-edge technology</span>
+            <span className="command-line">$ ls -la ~/projects | grep -i "innovative"</span>
           </p>
           <div className="w-32 h-1 bg-gradient-to-r from-neon-cyan to-neon-magenta mx-auto mt-4"></div>
         </div>
 
-        {/* Projects Grid */}
-        <div className="grid md:grid-cols-2 gap-8">
+        {/* Projects Grid - 3 columns for better clarity */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {visibleProjects.map((project, index) => (
             <div
               key={project.id}
@@ -171,107 +183,132 @@ const Projects = () => {
               onMouseLeave={() => setHoveredProject(null)}
             >
               {/* Project Card */}
-              <div className={`glass-effect rounded-lg overflow-hidden border transition-all duration-500 ${
+              <div className={`glass-effect rounded-xl overflow-hidden border transition-all duration-500 h-full flex flex-col ${
                 hoveredProject === index 
-                  ? 'border-neon-cyan shadow-neon-cyan transform scale-105 rotate-1' 
+                  ? 'border-neon-cyan shadow-lg shadow-neon-cyan/50 transform -translate-y-2' 
                   : 'border-white/10 hover:border-neon-cyan/50'
               }`}>
                 
                 {/* Project Image */}
-                <div className="relative h-64 overflow-hidden">
+                <div className="relative h-48 overflow-hidden">
                   <img 
                     src={project.image} 
                     alt={project.title}
                     className={`w-full h-full object-cover transition-all duration-700 ${
-                      hoveredProject === index ? 'scale-110 brightness-110' : 'scale-100 brightness-75'
+                      hoveredProject === index ? 'scale-110' : 'scale-100'
                     }`}
                   />
                   
                   {/* Overlay */}
-                  <div className={`absolute inset-0 bg-gradient-to-t from-cyber-dark/90 to-transparent transition-opacity duration-300 ${
-                    hoveredProject === index ? 'opacity-70' : 'opacity-90'
+                  <div className={`absolute inset-0 bg-gradient-to-t from-cyber-dark via-cyber-dark/50 to-transparent transition-opacity duration-300 ${
+                    hoveredProject === index ? 'opacity-60' : 'opacity-80'
                   }`}></div>
                   
                   {/* Status Badge */}
-                  <div className={`absolute top-4 right-4 px-3 py-1 rounded-full border font-mono text-xs ${
+                  <div className={`absolute top-3 right-3 px-3 py-1 rounded-full border font-mono text-xs font-semibold ${
                     statusColors[project.status as keyof typeof statusColors]
-                  } glass-effect`}>
+                  } backdrop-blur-sm`}>
                     {project.status}
                   </div>
 
-                  {/* Hover Buttons */}
-                  <div className={`absolute inset-0 flex items-center justify-center space-x-4 transition-all duration-300 ${
-                    hoveredProject === index ? 'opacity-100 scale-100' : 'opacity-0 scale-90'
+                  {/* Hover Action Buttons */}
+                  <div className={`absolute inset-0 flex items-center justify-center gap-3 transition-all duration-300 ${
+                    hoveredProject === index ? 'opacity-100' : 'opacity-0'
                   }`}>
                     <a 
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="cyber-button text-xs py-2 px-4"
+                      className="flex items-center gap-2 bg-cyber-dark/90 backdrop-blur-sm border border-neon-cyan text-neon-cyan px-4 py-2 rounded-lg hover:bg-neon-cyan hover:text-cyber-dark transition-all duration-300 font-mono text-sm"
                     >
-                      GitHub
+                      <Github size={16} />
+                      <span>Code</span>
                     </a>
-                    <a 
-                      href={project.demo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="cyber-button border-neon-magenta text-neon-magenta hover:bg-neon-magenta hover:shadow-neon-magenta text-xs py-2 px-4"
-                    >
-                      Live Demo
-                    </a>
+                    {project.demo && (
+                      <a 
+                        href={project.demo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 bg-cyber-dark/90 backdrop-blur-sm border border-neon-magenta text-neon-magenta px-4 py-2 rounded-lg hover:bg-neon-magenta hover:text-cyber-dark transition-all duration-300 font-mono text-sm"
+                      >
+                        <ExternalLink size={16} />
+                        <span>Live</span>
+                      </a>
+                    )}
                   </div>
                 </div>
 
                 {/* Project Info */}
-                <div className="p-6">
-                  <h3 className="text-xl font-orbitron font-bold text-white mb-3 group-hover:text-neon-cyan transition-colors duration-300">
+                <div className="p-5 flex-1 flex flex-col">
+                  <h3 className="text-lg font-orbitron font-bold text-white mb-2 group-hover:text-neon-cyan transition-colors duration-300 line-clamp-1">
                     {project.title}
                   </h3>
                   
-                  <p className="text-gray-300 text-sm mb-4 leading-relaxed">
+                  <p className="text-gray-300 text-sm mb-4 leading-relaxed line-clamp-3 flex-1">
                     {project.description}
                   </p>
 
                   {/* Tech Stack */}
-                  <div className="flex flex-wrap gap-2">
-                    {project.tech.map((tech, techIndex) => (
+                  <div className="flex flex-wrap gap-2 mt-auto">
+                    {project.tech.slice(0, 4).map((tech, techIndex) => (
                       <span 
                         key={techIndex}
-                        className="px-3 py-1 text-xs font-mono bg-neon-cyan/10 text-neon-cyan border border-neon-cyan/30 rounded-full hover:bg-neon-cyan/20 transition-colors duration-300"
+                        className="px-2.5 py-1 text-xs font-mono bg-neon-cyan/10 text-neon-cyan border border-neon-cyan/30 rounded-md hover:bg-neon-cyan/20 transition-colors duration-300"
                       >
                         {tech}
                       </span>
                     ))}
+                    {project.tech.length > 4 && (
+                      <span className="px-2.5 py-1 text-xs font-mono text-gray-400">
+                        +{project.tech.length - 4}
+                      </span>
+                    )}
                   </div>
                 </div>
 
                 {/* Card Border Glow Effect */}
-                <div className={`absolute inset-0 rounded-lg pointer-events-none transition-opacity duration-300 ${
+                <div className={`absolute inset-0 rounded-xl pointer-events-none transition-opacity duration-300 ${
                   hoveredProject === index ? 'opacity-100' : 'opacity-0'
                 }`}>
-                  <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-neon-cyan/20 via-neon-purple/20 to-neon-magenta/20 blur-sm"></div>
+                  <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-neon-cyan/10 via-neon-purple/10 to-neon-magenta/10 blur-xl"></div>
                 </div>
               </div>
-
-              {/* Floating decorative elements */}
-              <div className={`absolute -top-2 -right-2 w-4 h-4 bg-neon-cyan rounded-full transition-all duration-300 ${
-                hoveredProject === index ? 'animate-ping' : 'animate-pulse'
-              }`}></div>
-              <div className={`absolute -bottom-2 -left-2 w-4 h-4 bg-neon-magenta rounded-full transition-all duration-300 ${
-                hoveredProject === index ? 'animate-ping' : 'animate-pulse'
-              }`} style={{ animationDelay: '0.5s' }}></div>
             </div>
           ))}
         </div>
 
-        {/* View More Projects Button */}
-        <div className="text-center mt-12">
-          {!showAll && projects.length > 4 && (
-            <button className="cyber-button" onClick={() => setShowAll(true)}>
-              View All Projects
+        {/* See More Button */}
+        {!showAll && projects.length > 6 && (
+          <div className="text-center mt-12">
+            <button 
+              className="cyber-button group px-8 py-3"
+              onClick={() => setShowAll(true)}
+            >
+              <span className="flex items-center gap-2">
+                See More Projects
+                <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
+              </span>
             </button>
-          )}
-        </div>
+          </div>
+        )}
+
+        {/* Show Less Button */}
+        {showAll && (
+          <div className="text-center mt-12">
+            <button 
+              className="cyber-button group px-8 py-3"
+              onClick={() => {
+                setShowAll(false);
+                document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+            >
+              <span className="flex items-center gap-2">
+                <span className="group-hover:-translate-x-1 transition-transform duration-300">←</span>
+                Show Less
+              </span>
+            </button>
+          </div>
+        )}
       </div>
 
       {/* Background decorative grid */}

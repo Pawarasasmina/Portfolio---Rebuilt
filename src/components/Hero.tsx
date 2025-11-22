@@ -3,7 +3,7 @@ import leftimage from '../assets/image-1.png';
 import rightimage from '../assets/image-2.png';
 import { FaGithub, FaLinkedin, FaTwitter, FaInstagram, FaFacebook } from 'react-icons/fa';
 import { motion } from 'framer-motion';
-import myCV from '../assets/Pawara Sasmina - CV.pdf';
+import myCV from '../assets/CV - Pawara Sasmina.pdf';
 
 const Hero = () => {
   const [displayText, setDisplayText] = useState('');
