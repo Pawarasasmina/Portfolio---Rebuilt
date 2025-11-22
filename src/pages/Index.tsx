@@ -72,7 +72,7 @@ const Index = () => {
       <Helmet>
         <title>Pawara Sasmina - Full Stack Developer | UI/UX Creator | Mobile App Engineer</title>
         <meta name="description" content="Experienced Full Stack Developer specializing in React, Node.js, and mobile app development. Explore my portfolio of innovative projects, modern UI/UX designs, and software solutions." />
-        <link rel="canonical" href="https://pawarasasmina.github.io/Portfolio---Rebuilt/" />
+        <link rel="canonical" href="https://www.pawara.online/" />
       </Helmet>
       
       <div className={`min-h-screen ${konamiMode ? 'bg-white text-black' : 'bg-cyber-dark text-white'} transition-all duration-1000`}>
