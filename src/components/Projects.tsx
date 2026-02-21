@@ -178,7 +178,7 @@ const Projects = () => {
       github: 'https://github.com/Pawarasasmina/Project-06---Fitness-Master.git',
       demo: '',
       status: 'Prototype'
-    }s
+    }
   ];
 
   const statusColors = {
