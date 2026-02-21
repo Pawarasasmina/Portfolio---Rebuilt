@@ -178,37 +178,7 @@ const Projects = () => {
       github: 'https://github.com/Pawarasasmina/Project-06---Fitness-Master.git',
       demo: '',
       status: 'Prototype'
-    },
-    {
-      id: 14,
-      title: 'Mail Management Service',
-      description: 'Official domain-based mailbox management system with mailbox request handling and role-based access control.',
-      image: healthcare,
-      tech: ['React', 'Node.js', 'MongoDB', 'RestAPI', 'Web Sockets'],
-      github: 'https://github.com/Pawarasasmina/mail-management.git',
-      demo: 'https://mail-management-bay.vercel.app',
-      status: 'Production'
-    },
-    {
-      id: 15,
-      title: 'Wayback Downloading Machine',
-      description: 'A tool to capture expired domains and download stable archived versions from the Wayback Machine.',
-      image: healthcare,
-      tech: ['React', 'Node.js', 'RestAPI', 'Web Sockets'],
-      github: 'https://github.com/Pawarasasmina/wayback-downloading-machine.git',
-      demo: '',
-      status: 'Production'
-    },
-    {
-      id: 16,
-      title: 'Domain Rank Checker',
-      description: 'A a real-time domain rank checker, tracks Google Top 10 search results and analysise with system db to provide insights on domain performance and trends.',
-      image: healthcare,
-      tech: ['React', 'Node.js', 'OpenAI API', 'Web Sockets'],
-      github: 'https://github.com/Pawarasasmina/domain-rank-checker.git',
-      demo: 'https://url-rank-checker.vercel.app',
-      status: 'Production'
-    }
+    }s
   ];
 
   const statusColors = {
