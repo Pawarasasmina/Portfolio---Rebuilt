@@ -46,7 +46,7 @@ const Projects = () => {
       image: rank,
       tech: ['React', 'Node.js', 'OpenAI API', 'Web Sockets'],
       github: 'https://github.com/Pawarasasmina/domain-rank-checker.git',
-      demo: 'https://url-rank-checker.vercel.app',
+      demo: 'https://rankchecker.200m.website',
       status: 'Production'
     },
     {
