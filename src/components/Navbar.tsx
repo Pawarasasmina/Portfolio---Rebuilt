@@ -55,7 +55,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+    <nav className={`fixed top-0 left-0 right-0 z-[1000] transition-all duration-300 ${
       isScrolled ? 'glass-effect border-b border-white/10' : 'bg-transparent'
     }`}>
       <div className="container mx-auto px-6 py-4">
@@ -102,7 +102,7 @@ const Navbar = () => {
 
       {/* Mobile Menu Overlay */}
       {mobileMenuOpen && (
-        <div className="fixed top-0 left-0 w-screen h-screen z-[999] bg-cyber-dark/95 flex flex-col items-center justify-center md:hidden animate-fade-in">
+        <div className="fixed top-0 left-0 w-screen h-screen z-[1001] bg-cyber-dark flex flex-col items-center justify-center md:hidden animate-fade-in">
           {navItems.map((item) => (
             <button
               key={item.id}

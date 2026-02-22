@@ -44,7 +44,7 @@ const Projects = () => {
       title: 'Domain Rank Checker',
       description: 'A a real-time domain rank checker, tracks Google Top 10 search results and analysise with system db to provide insights on domain performance and trends.',
       image: rank,
-      tech: ['React', 'Node.js', 'OpenAI API', 'Web Sockets'],
+      tech: ['React', 'Node.js', 'REST API', 'Web Sockets'],
       github: 'https://github.com/Pawarasasmina/domain-rank-checker.git',
       demo: 'https://rankchecker.200m.website',
       status: 'Production'

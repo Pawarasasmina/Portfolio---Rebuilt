@@ -1,12 +1,20 @@
 const About = () => {
   const timelineData = [
     {
+      year: '2026 Feb -Present',
+      title: 'Associate Software Engineer',
+      company: 'Port City BPO (Pvt) Ltd',
+      description: 'Contributed to Web application development and automated fully functional systems',
+      type: 'internship'
+    },
+     {
       year: '2025 Feb -2025 Aug',
       title: 'Software Engineering Intern',
       company: 'Mobitel (Pvt) Ltd',
       description: 'Contributed to Web application development and backend systems',
       type: 'internship'
     },
+   
     {
       year: '2024',
       title: 'Higher National Diploma in Information Technology',

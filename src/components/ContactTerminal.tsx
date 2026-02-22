@@ -47,6 +47,9 @@ const ContactTerminal = () => {
 
   // Focus input when component mounts or step changes
   useEffect(() => {
+    const isMobile = window.matchMedia('(max-width: 767px)').matches;
+    if (isMobile) return;
+
     if (inputRef.current && currentStep !== 'complete' && !isProcessing) {
       inputRef.current.focus();
     }

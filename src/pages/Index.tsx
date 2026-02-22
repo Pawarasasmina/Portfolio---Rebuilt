@@ -17,13 +17,27 @@ const Index = () => {
   // Konami Code: ↑↑↓↓←→←→BA
   const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'KeyB', 'KeyA'];
 
+  // Prevent browsers from restoring old scroll position on reload/navigation
+  useEffect(() => {
+    if (!('scrollRestoration' in window.history)) return;
+    const previous = window.history.scrollRestoration;
+    window.history.scrollRestoration = 'manual';
+
+    return () => {
+      window.history.scrollRestoration = previous;
+    };
+  }, []);
+
   // Scroll to top and to #hero on mount
   useEffect(() => {
-    window.scrollTo(0, 0);
-    const hero = document.getElementById('hero');
-    if (hero) {
-      hero.scrollIntoView({ behavior: 'auto' });
-    }
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+    requestAnimationFrame(() => {
+      window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+      const hero = document.getElementById('hero');
+      if (hero) {
+        hero.scrollIntoView({ behavior: 'auto', block: 'start' });
+      }
+    });
   }, []);
 
   useEffect(() => {
